@@ -1,0 +1,193 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1d1f22;
+}
+
+.wrapper {
+    max-width: 1238px;
+    width: calc(100vw - 101px);
+    margin: 0 auto;
+}
+
+/* Header styles start */
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+}
+
+.list {
+    display: flex;
+    list-style-type: none;
+}
+
+.list-item {
+    font-weight: 600;
+    line-height: 120%;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 4px 16px 28px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s ease-in-out;
+}
+
+.list-item:hover {
+    color: #5ece7b;
+    border-bottom: 2px solid #5ece7b;
+}
+
+.header__action {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.header__action > div {
+    cursor: pointer;
+}
+.header__action > div:hover {
+    scale: 1.05;
+}
+
+.currency-changer {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+
+    display: flex;
+    align-items: center;
+}
+
+.currency {
+    display: inline-block;
+    margin-inline: 10px;
+}
+
+.down-arrow {
+    display: inline-block;
+}
+
+/* Header styles end */
+
+/* Main styles start */
+
+.main__wrapper {
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 190px;
+}
+
+.category-title {
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 160%;
+    margin-bottom: 103px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-template-rows: repeat(auto-fill, 440px);
+    justify-items: center;
+    gap: 103px 40px;
+}
+
+.card {
+    padding: 16px;
+    transition: all ease-in-out 0.2s;
+    font-size: 18px;
+    line-height: 160%;
+    position: relative;
+}
+.card:hover {
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+}
+.product-img {
+    width: 354px;
+    height: 330px;
+    margin-bottom: 24px;
+    position: relative;
+}
+.product-discount {
+    font-weight: 600;
+    font-size: 12px;
+    color: #ffffff;
+    padding: 8px 16px;
+    display: flex;
+    gap: 10px;
+    background-color: #5ece7b;
+    position: absolute;
+    top: 8px;
+    left: 0;
+}
+
+.add-to-cart {
+    border: none;
+    outline: none;
+    background-color: #5ece7b;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 31px;
+    bottom: 72px;
+    cursor: pointer;
+    scale: 0;
+    transition: all 0.05s ease-in;
+}
+.card:hover .add-to-cart {
+    scale: 1;
+}
+.add-to-cart:hover {
+    filter: brightness(95%);
+}
+.add-to-cart > img {
+    filter: brightness(10);
+    width: 50%;
+    display: block;
+}
+
+.product-title {
+    font-weight: 300;
+}
+.product-price {
+    font-weight: 500;
+}
+
+.currency-modal {
+    /* display: none; */
+    width: 110px;
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+    padding: 17px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.currency-list-item {
+    padding: 8px 20px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    list-style: none;
+    cursor: pointer;
+}
+.currency-list-item:hover {
+    background: #eeeeee;
+}
+/* Main styles end */
