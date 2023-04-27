@@ -1,12 +1,12 @@
-import img1 from "../assets/img/img1.jpg";
+import img1 from "../assets/img/Product E.jpg";
 import tick from "../assets/svg/tick.svg";
 import cart from "../assets/svg/cart.svg";
 
-const ProductCard = () => {
+const ProductCard = ({ currency, title, price, img }) => {
     return (
         <div className="card">
             <div className="product-img">
-                <img src={img1} alt="img one" />
+                <img src={img} alt="img one" />
                 <span className="product-discount">
                     <img src={tick} />
                     50%
@@ -17,9 +17,12 @@ const ProductCard = () => {
                 <img src={cart} />
             </button>
 
-            <h3 className="product-title">Apollo running shorts</h3>
+            <h3 className="product-title">{title}</h3>
 
-            <h3 className="product-price">$50.00</h3>
+            <h3 className="product-price">
+                {currency == "eur" ? "€" : currency == "jpy" ? "¥" : "$"}
+                {price[currency]}.00
+            </h3>
         </div>
     );
 };

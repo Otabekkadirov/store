@@ -1,8 +1,10 @@
 import logo from "../assets/svg/logo.svg";
 import cart from "../assets/svg/cart.svg";
 import down from "../assets/svg/down.svg";
+import CurrencyModal from "./CurrencyModal";
+import CartOverlay from "./CartOverlay";
 
-const Header = () => {
+const Header = ({ events, states }) => {
     return (
         <header className="header">
             <div className="wrapper header__wrapper">
@@ -19,15 +21,32 @@ const Header = () => {
                 </div>
 
                 <div className="header__action">
-                    <div className="currency-changer">
-                        <span className="currency">$</span>
+                    <div
+                        className="currency-changer"
+                        onClick={events.toggleModal}
+                    >
+                        <span className="currency">
+                            {states.currency == "eur"
+                                ? "€"
+                                : states.currency == "jpy"
+                                ? "¥"
+                                : "$"}
+                        </span>
                         <img src={down} alt="" className="down-arrow" />
                     </div>
 
-                    <div className="cart">
+                    <div className="cart" onClick={events.toggleCart}>
                         <img src={cart} alt="cart" className="cart-img" />
                     </div>
                 </div>
+                <CurrencyModal
+                    modalActive={states.modalActive}
+                    onClick={events.selectCurrency}
+                />
+                <CartOverlay
+                    active={states.cartActive}
+                    currency={states.currency}
+                />
             </div>
         </header>
     );
