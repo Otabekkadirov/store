@@ -154,10 +154,16 @@ const products = [
     },
 ];
 
+const CATEGORIES = ["Woman", "Men", "Kids"];
 function App() {
     const [modalActive, setModalActive] = useState("");
     const [currency, setCurrency] = useState("usd");
     const [cartActive, setCartActive] = useState("");
+    const [category, setCategory] = useState("Category Name");
+
+    const chooseCategory = (id) => {
+        setCategory(CATEGORIES[id]);
+    };
 
     const toggleModal = () => {
         if (cartActive == "active") {
@@ -180,13 +186,18 @@ function App() {
     return (
         <div className="App">
             <Header
-                events={{ toggleCart, toggleModal, selectCurrency }}
-                states={{ currency, modalActive, cartActive }}
+                events={{
+                    toggleCart,
+                    toggleModal,
+                    selectCurrency,
+                    chooseCategory,
+                }}
+                states={{ currency, CATEGORIES, modalActive, cartActive }}
             />
             <MainBody
                 products={products}
                 events={{ toggleCart }}
-                states={{ currency, cartActive }}
+                states={{ currency, category, cartActive }}
             />
         </div>
     );

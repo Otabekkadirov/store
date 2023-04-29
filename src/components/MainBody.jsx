@@ -4,7 +4,7 @@ const MainBody = ({ events, states, products }) => {
     return (
         <main className="main">
             <div className="wrapper main__wrapper">
-                <h1 className="category-title">Category Name</h1>
+                <h1 className="category-title">{states.category}</h1>
 
                 <div className="cards">
                     {products.map((product, index) => (

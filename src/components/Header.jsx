@@ -3,6 +3,7 @@ import cart from "../assets/svg/cart.svg";
 import down from "../assets/svg/down.svg";
 import CurrencyModal from "./CurrencyModal";
 import CartOverlay from "./CartOverlay";
+import Category from "./Category";
 
 const Header = ({ events, states }) => {
     return (
@@ -10,9 +11,15 @@ const Header = ({ events, states }) => {
             <div className="wrapper header__wrapper">
                 <nav className="header__navigation">
                     <ul className="list">
-                        <li className="list-item">Women</li>
-                        <li className="list-item">Men</li>
-                        <li className="list-item">Kids</li>
+                        {states.CATEGORIES.map((category, index) => (
+                            <Category
+                                key={index}
+                                category={category}
+                                onClick={() => {
+                                    events.chooseCategory(index);
+                                }}
+                            />
+                        ))}
                     </ul>
                 </nav>
 
