@@ -1,26 +1,23 @@
 import ColorButton from "./ColorButton";
 import SizeButton from "./SizeButton";
-import img1 from "../assets/img/Product E.jpg";
 import CountControl from "./CountControl";
 import { useState } from "react";
 
-const CartProduct = ({ currency }) => {
+const CartProduct = ({ currency, title, price, img }) => {
     const [count, setCount] = useState(1);
 
     return (
         <div className="cart__product">
             <div className="cart__product-info">
                 <div className="cart__product-content">
-                    <h4 className="cart__product-title">
-                        Apollo Running Short
-                    </h4>
+                    <h4 className="cart__product-title">{title}</h4>
                     <h4 className="cart__product-price">
                         {currency == "eur"
                             ? "€"
                             : currency == "jpy"
                             ? "¥"
                             : "$"}
-                        50.00
+                        {price}.00
                     </h4>
                     <div className="cart__product-size">
                         <span>Size:</span>
@@ -51,7 +48,7 @@ const CartProduct = ({ currency }) => {
                 />
 
                 <div className="cart__product-img">
-                    <img src={img1} alt="img1" />
+                    <img src={img} alt="img1" />
                 </div>
             </div>
         </div>

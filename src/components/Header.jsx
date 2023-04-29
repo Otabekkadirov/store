@@ -5,7 +5,7 @@ import CurrencyModal from "./CurrencyModal";
 import CartOverlay from "./CartOverlay";
 import Category from "./Category";
 
-const Header = ({ events, states }) => {
+const Header = ({ events, states, products_in_cart }) => {
     return (
         <header className="header">
             <div className="wrapper header__wrapper">
@@ -53,6 +53,8 @@ const Header = ({ events, states }) => {
                 <CartOverlay
                     active={states.cartActive}
                     currency={states.currency}
+                    itemCount={states.itemCount}
+                    products_in_cart={products_in_cart}
                 />
             </div>
         </header>

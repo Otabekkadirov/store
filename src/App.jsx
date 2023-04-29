@@ -62,6 +62,9 @@ const products = [
         },
         img: ProductB,
     },
+];
+
+const products_in_cart = [
     {
         name: "Apollo Running Short",
         price: {
@@ -69,7 +72,7 @@ const products = [
             eur: 45,
             jpy: 6673,
         },
-        img: ProductB,
+        img: ProductA,
     },
     {
         name: "Apollo Running Short",
@@ -87,79 +90,18 @@ const products = [
             eur: 45,
             jpy: 6673,
         },
-        img: ProductB,
-    },
-    {
-        name: "Apollo Running Short",
-        price: {
-            usd: 50,
-            eur: 45,
-            jpy: 6673,
-        },
-        img: ProductB,
-    },
-    {
-        name: "Apollo Running Short",
-        price: {
-            usd: 50,
-            eur: 45,
-            jpy: 6673,
-        },
-        img: ProductB,
-    },
-    {
-        name: "Apollo Running Short",
-        price: {
-            usd: 50,
-            eur: 45,
-            jpy: 6673,
-        },
-        img: ProductB,
-    },
-    {
-        name: "Apollo Running Short",
-        price: {
-            usd: 50,
-            eur: 45,
-            jpy: 6673,
-        },
-        img: ProductB,
-    },
-    {
-        name: "Apollo Running Short",
-        price: {
-            usd: 50,
-            eur: 45,
-            jpy: 6673,
-        },
-        img: ProductB,
-    },
-    {
-        name: "Apollo Running Short",
-        price: {
-            usd: 50,
-            eur: 45,
-            jpy: 6673,
-        },
-        img: ProductB,
-    },
-    {
-        name: "Apollo Running Short",
-        price: {
-            usd: 50,
-            eur: 45,
-            jpy: 6673,
-        },
-        img: ProductB,
+        img: ProductC,
     },
 ];
 
 const CATEGORIES = ["Woman", "Men", "Kids"];
+
 function App() {
     const [modalActive, setModalActive] = useState("");
     const [currency, setCurrency] = useState("usd");
     const [cartActive, setCartActive] = useState("");
     const [category, setCategory] = useState("Category Name");
+    const [itemCount, setItemCount] = useState(0);
 
     const chooseCategory = (id) => {
         setCategory(CATEGORIES[id]);
@@ -192,7 +134,14 @@ function App() {
                     selectCurrency,
                     chooseCategory,
                 }}
-                states={{ currency, CATEGORIES, modalActive, cartActive }}
+                states={{
+                    currency,
+                    CATEGORIES,
+                    modalActive,
+                    cartActive,
+                    itemCount,
+                }}
+                products_in_cart={products_in_cart}
             />
             <MainBody
                 products={products}
